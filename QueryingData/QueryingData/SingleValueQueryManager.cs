@@ -27,5 +27,16 @@ namespace QueryingData.QueryingData
             var count = await connection.ExecuteScalarAsync<int>(sql);
             return count;
         }
+
+        public async Task<string> GetMovieTitleAsync(int filmId)
+        {
+            using var connection = new NpgsqlConnection(_configOptions.Value.DefaultConnection);
+
+            var sql = "SELECT title FROM film WHERE film_id = @filmId";
+
+            var title = await connection.ExecuteScalarAsync<string>(sql, new { filmId });
+
+            return title;
+        }
     }
 }
