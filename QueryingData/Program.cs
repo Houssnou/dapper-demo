@@ -46,29 +46,22 @@ while (true)
     {
         case "Single Value (Total Movies Count)":
             {
-                var count = singleValueQueryManager.GetTotalMoviesCountAsync().GetAwaiter().GetResult();
+                var count = await singleValueQueryManager.GetTotalMoviesCountAsync();
                 AnsiConsole.MarkupLine($"[green]Total movies count: {count}[/]");
                 break;
             }
         case "Single Value (Movie Title by ID)":
             {
                 var id = AnsiConsole.Ask<int>("[yellow]Enter the film ID:[/]");
-                var title = singleValueQueryManager.GetMovieTitleAsync(id).GetAwaiter().GetResult();
+                var title = await singleValueQueryManager.GetMovieTitleAsync(id);
                 AnsiConsole.MarkupLine($"[green]Movie by id: {id} - Title: {title}[/]");
                 break;
             }
         case "Single Row (Film by ID)":
             {
                 var id = AnsiConsole.Ask<int>("[yellow]Enter the film ID:[/]");
-                var film = singleRowQueryManager.GetFilmByIdAsync(id).GetAwaiter().GetResult();
+                var film = await singleRowQueryManager.GetFilmByIdAsync(id);
                 DisplayFilm(film);
-
-                // Display as JSON
-                if (film != null)
-                {
-                    var filmJson = JsonSerializer.Serialize(film, new JsonSerializerOptions { WriteIndented = true });
-                    AnsiConsole.Write(new JsonText(filmJson));
-                }
                 break;
             }
         case "Multiple Row (Search Films by Title/Keyword)":
