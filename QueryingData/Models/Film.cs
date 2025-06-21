@@ -7,6 +7,15 @@ using System.Threading.Tasks;
 
 namespace QueryingData.Models
 {
+    public enum MpaaRating
+    {
+        G,
+        PG,
+        PG13,   // Use PG13 for 'PG-13' (hyphens not allowed in enum names)
+        R,
+        NC17    // Use NC17 for 'NC-17'
+    }
+
     public class Film
     {
         public int FilmId { get; set; }
@@ -18,7 +27,7 @@ namespace QueryingData.Models
         public decimal RentalRate { get; set; }
         public int Length { get; set; }
         public decimal ReplacementCost { get; set; }
-        public string? Rating { get; set; }
+        public string Rating { get; set; }  // public MpaaRating Rating { get; set; }
         public DateTime LastUpdate { get; set; }
         public string? SpecialFeatures { get; set; }
         public NpgsqlTsVector? FullText { get; set; }
