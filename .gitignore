@@ -405,3 +405,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /QueryingData/appsettings.json
+/VideoRental.API/appsettings.Development.json
