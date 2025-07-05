@@ -16,6 +16,7 @@
     <PackageReference Include="Spectre.Console" Version="0.50.0" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.50.0" />
     <PackageReference Include="Spectre.Console.Json" Version="0.50.0" />
+    <PackageReference Include="Z.Dapper.Plus" Version="7.6.0" />
   </ItemGroup>
 
   <ItemGroup>

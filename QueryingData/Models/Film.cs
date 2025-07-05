@@ -32,4 +32,11 @@ namespace QueryingData.Models
         public string? SpecialFeatures { get; set; }
         public NpgsqlTsVector? FullText { get; set; }
     }
+
+    public class FilmWithCategory : Film
+    {
+        public int FilmId { get; set; }
+        public string? Title { get; set; } = string.Empty;
+        public string? Category { get; set; }
+    }
 }

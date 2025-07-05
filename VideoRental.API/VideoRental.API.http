@@ -1,0 +1,6 @@
+@VideoRental.API_HostAddress = http://localhost:5196
+
+GET {{VideoRental.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
